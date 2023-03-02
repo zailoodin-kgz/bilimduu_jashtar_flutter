@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'result_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -14,6 +17,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class MyFirstScreen extends StatefulWidget {
   const MyFirstScreen({super.key});
 
@@ -30,75 +34,113 @@ class _MyFirstScreenState extends State<MyFirstScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        title: const Text(
-          '1 Тапшырма',
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black),
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.red,
+          Color.fromARGB(255, 44, 166, 214),
+        ],
+      )),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          elevation: 2,
+        
+          title: const Text(
+            '1 Тапшырма',
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: Color.fromARGB(255, 255, 255, 255)),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
         ),
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-      ),
-      endDrawer: const Drawer(
-        backgroundColor: Colors.blueAccent,
-        semanticLabel: "Heloo",
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: onTap,
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      const Color.fromARGB(255, 13, 230, 31).withOpacity(0.8)),
-                ),
-                child: Container(
-                  width: double.infinity,
+        endDrawer: const Drawer(
+          backgroundColor: Colors.blueAccent,
+          semanticLabel: "Heloo",
+        ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 100,
                   height: 30,
                   alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.green),
                   child: Text(
                     'Сан: $number',
                     style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
-                        color: Colors.black),
+                        color: Colors.white),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        number--;
-                      });
-                    },
-                    child: const Icon(Icons.remove),
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          number--;
+                        });
+                      },
+                      child: const Icon(Icons.remove),
+                    ),
+                    const SizedBox(
+                      width: 40,
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          number++;
+                        });
+                      },
+                      child: const Icon(Icons.add),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                FloatingActionButton(
+                  
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultPage(number: number),
+                      ),
+                    );
+                  },
+                  child: const Center(
+                    child:  Icon(
+                      Icons.next_plan,
+                      
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      
+                    ),
                   ),
-                  const SizedBox(
-                    width: 40,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        number++;
-                      });
-                    },
-                    child: const Icon(Icons.add),
-                  )
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
