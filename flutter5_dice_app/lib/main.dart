@@ -61,7 +61,7 @@ class _DicePageState extends State<DicePage> {
                       height: 10,
                     ),
                     Text(
-                      'Сиздин сан $firstPlayer ',
+                      'Сиздин упайыныз $firstPlayer ',
                       style: TextStyle(
                           color: firstPlayer > secondPlayer
                               ? Colors.green
@@ -101,7 +101,7 @@ class _DicePageState extends State<DicePage> {
                       height: 10,
                     ),
                     Text(
-                      'Сиздин сан $secondPlayer',
+                      'Сиздин упайыныз $secondPlayer',
                       style: TextStyle(
                           color: secondPlayer > firstPlayer
                               ? Colors.green
