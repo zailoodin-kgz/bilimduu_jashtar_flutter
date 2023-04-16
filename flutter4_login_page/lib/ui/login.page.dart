@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                         'Forgotten password?',
                         style: AppFonts.w700s13
-                            .copyWith(color: Color.fromARGB(255, 231, 216, 8)),
+                            .copyWith(color: const Color.fromARGB(255, 231, 216, 8)),
                       ),
                     ),
                   ],
