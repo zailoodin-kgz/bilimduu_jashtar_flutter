@@ -1,5 +1,4 @@
 # flutter_piano
-![diceApp_foto](https://user-images.githubusercontent.com/88503274/229023165-23e75854-513f-4db8-9755-62bb262d887c.png)
 ![pianp app](https://github.com/zailoodin-kgz/bilimduu_jashtar_flutter/blob/master/flutter7_piano_app/flutter_piano-main/piano.png)
 
 
